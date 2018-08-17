@@ -1,4 +1,6 @@
 #Written by Trevor H.
+require 'colorize'
+
 class Wallet
   attr_reader :balance
 
@@ -26,8 +28,16 @@ class Wallet
     end
   end
 
+  def has_amount(amount)
+    if @balance - amount >= 0
+      return true
+    else
+      return false
+    end
+  end
+
   # Puts the current balance to the terminal
   def print_balance
-    printf("You current balance is: $%.2f\n", @balance)
+    printf("You current balance is: $%.2f\n".colorize(:cyan), @balance)
   end
 end
