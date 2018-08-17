@@ -8,6 +8,7 @@ require 'artii'
 class CoinFlip
   def initialize(starting_balance)
     @wallet = Wallet.new(starting_balance)
+    @keep_playing = true
   end
 
   # Starts the game. Run this after initialize
@@ -17,7 +18,7 @@ class CoinFlip
     puts 'Type QUIT to stop playing'.colorize(:blue)
     @wallet.print_balance
     # Play the game until the user quits
-    while true
+    while @keep_playing == true
       play_game
     end
   end
@@ -35,7 +36,11 @@ class CoinFlip
       puts 'How much would you like to bet?'
       user_bet = gets.chomp.downcase
       # Check if the user wants to quit at this point
-      quit if user_bet == 'quit'
+      if user_bet == 'quit'
+        @keep_playing = false
+        quit
+        return
+      end
       user_bet = user_bet.to_f
       # Make sure that the user has enough money to bet the amount they entered
       unless @wallet.has_amount(user_bet)
@@ -55,7 +60,11 @@ class CoinFlip
       user_selection = gets.chomp.downcase
     end
     # Quit if the user wants
-    quit if user_selection == 'quit'
+    if user_selection == 'quit'
+      @keep_playing = false
+      quit
+      return
+    end
     # Flip the coin
     if user_selection == 'heads' || user_selection == 'h'
       result = Coin.flip('heads')
@@ -79,6 +88,5 @@ class CoinFlip
   def quit
     system('clear')
     puts `artii \'Bye!\' --font slant`.colorize(:gray)
-    exit
   end
 end
