@@ -1,10 +1,7 @@
-#menu of games to select
-#start games
-#
-#quit menu
+###menu of games to select###
+### Start of game program ###
+###quit menu###
 
-require_relative "Wallet.rb"
-
-### Start of program ###
-# Create a casino game and start it
-RubyCasino.new.start
+require_relative 'DoubleYourMoney.rb'
+require_relative  #name of next game
+require_relative
