@@ -2,7 +2,6 @@
 require_relative 'Wallet.rb'
 require_relative 'Coin.rb'
 require 'colorize'
-require 'pry'
 require 'artii'
 
 # Coin flip game
