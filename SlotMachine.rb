@@ -20,44 +20,17 @@ class SlotMachine #Keeps track of win line arrangement
 
     def shuffle_slots
         @shuffle = @state.shuffle
-        print_slots
     end
 
     def print_slots
-        @shuffle.each do |wheel|
-            puts "#{wheel.fruit} ,#{wheel.position}"
+        @state.each do |wheel|
+            puts "#{wheel.fruit} #{wheel.position}"
             end
     end
-######################################################
-# def pairs(array)
-#     i = 0
-#     while i < array.length
-#       y = i + 1
-#       while y < array.length
-#         if array[i] + array[y] == 0
-#           return true
-#         end
-#         y += 1
-#       end
-#       i += 1
-#     end
-#     return false
-#   end
-  ###################################################
-    def check_win
-        @state.(2).times do |check|
-            equal =(@state[check] == @state[check + 1])
-            if equal == true
-                puts "You Win!!!"
-            else
-                puts "Try Again, Your Odds Are Good!!!"
-            end
-        end
-    end
 
-
+    
 end
+    
 slot = SlotMachine.new
 puts '###########################################'
-slot.shuffle_slots
-slot.check_win
+slot.print_slots
