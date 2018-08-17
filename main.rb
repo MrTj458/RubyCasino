@@ -3,7 +3,7 @@
 ###quit menu###
 
 require_relative 'CoinFlip.rb'
-# require_relative 'SlotMachine.rb'
+require_relative 'SlotMachine.rb'
 
 
 def menu
@@ -16,7 +16,7 @@ def menu
     when 1
       CoinFlip.new(10.00).start
     when 2
-      # SlotMachine.new
+      SlotMachine.new
     when 3
       "Goodbye"
       exit
