@@ -37,4 +37,4 @@ class Deck
 end
 
 d = Deck.new
-# puts d.cards
+puts d.cards
