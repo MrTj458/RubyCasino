@@ -3,16 +3,17 @@ require_relative 'Wallet.rb'
 require_relative 'Coin.rb'
 require 'colorize'
 require 'pry'
+require 'artii'
 
 # Coin flip game
-class DoubleYourMoney
+class CoinFlip
   def initialize(starting_balance)
     @wallet = Wallet.new(starting_balance)
   end
 
   # Starts the game. Run this after initialize
   def start
-    puts 'Welcome to Double Your Money!'.colorize(:green)
+    puts `artii \'Coin Flip!\' --font slant`.colorize(:gray)
     puts 'Type QUIT to stop playing'.colorize(:blue)
     @wallet.print_balance
     # Play the game until the user quits
@@ -60,18 +61,18 @@ class DoubleYourMoney
     result = Coin.flip(user_selection)
     if result
       # The user picked the winning side
-      puts "You Win!".colorize(:green)
+      puts `artii \'You Win!\'`.colorize(:green)
       @wallet.add_money(user_bet)
     else
       # The user picked the loosing side
-      puts "Better luck next time!".colorize(:red)
+      puts `artii \'You Lose!\'`.colorize(:red)
       @wallet.take_money(user_bet)
     end
   end
 
   # Quit the program. Made a function for less typing elsewhere
   def quit
-    puts "Thanks for playing!".colorize(:green)
+    puts `artii \'Bye!\' --font slant`.colorize(:gray)
     exit
   end
 end
