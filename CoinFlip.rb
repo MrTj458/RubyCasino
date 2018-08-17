@@ -13,6 +13,7 @@ class CoinFlip
 
   # Starts the game. Run this after initialize
   def start
+    system('clear')
     puts `artii \'Coin Flip!\' --font slant`.colorize(:gray)
     puts 'Type QUIT to stop playing'.colorize(:blue)
     @wallet.print_balance
@@ -41,7 +42,6 @@ class CoinFlip
       unless @wallet.has_amount(user_bet)
         user_bet = 0
         puts "You do not have enough money in your wallet.".colorize(:red)
-        @wallet.print_balance
       end
       # If the loop goes around again it know that the user
       # entered something wrong. incorrect_flag never need to be reset
@@ -61,10 +61,12 @@ class CoinFlip
     result = Coin.flip(user_selection)
     if result
       # The user picked the winning side
+      system('clear')
       puts `artii \'You Win!\'`.colorize(:green)
       @wallet.add_money(user_bet)
     else
       # The user picked the loosing side
+      system('clear')
       puts `artii \'You Lose!\'`.colorize(:red)
       @wallet.take_money(user_bet)
     end
@@ -72,6 +74,7 @@ class CoinFlip
 
   # Quit the program. Made a function for less typing elsewhere
   def quit
+    system('clear')
     puts `artii \'Bye!\' --font slant`.colorize(:gray)
     exit
   end
