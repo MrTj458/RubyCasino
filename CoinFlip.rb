@@ -50,14 +50,18 @@ class CoinFlip
 
     user_selection = ''
     # Make sure that the user can only enter heads, tails, or quit
-    until user_selection == 'heads' || user_selection == 'tails' || user_selection == 'quit'
+    until user_selection == 'heads' || user_selection == 'h' || user_selection == 'tails' || user_selection == 't' || user_selection == 'quit'
       puts 'Heads or Tails?'
       user_selection = gets.chomp.downcase
     end
     # Quit if the user wants
     quit if user_selection == 'quit'
     # Flip the coin
-    result = Coin.flip(user_selection)
+    if user_selection == 'heads' || user_selection == 'h'
+      result = Coin.flip('heads')
+    elsif user_selection == 'tails' || user_selection == 't'
+      result = Coin.flip('tails')
+    end
     if result
       # The user picked the winning side
       system('clear')
