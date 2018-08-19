@@ -4,13 +4,19 @@
 
 require_relative 'CoinFlip.rb'
 require_relative 'SlotMachine.rb'
+require 'colorize'
+require 'artii'
+require 'lolcat'
 
 
 def menu
-  puts "Choose A Game"
-  puts "1: Coin Flip"
-  puts "2: Slot Machine"
-  puts "3 Exit"
+  system('clear')
+  system('artii \'Ruby Casino\' | lolcat -a -s 500')
+  puts "Pick A Game".colorize(:cyan)
+  puts "1: Coin Flip".colorize(:blue)
+  puts "2: Slot Machine".colorize(:blue)
+  puts "3: Exit".colorize(:red)
+  print '> '
   input = gets.chomp.to_i
   case input
     when 1
@@ -18,13 +24,17 @@ def menu
     when 2
       SlotMachine.new
     when 3
-      "Goodbye"
-      exit
+      quit
     else 
       puts 'Select Another Game. Select 1 or 2'
   end
 end
 
-  while true
-    menu  
-  end
+def quit
+  system('artii \'Thanks for playing!\' --font slant | lolcat -a -s 500')
+  exit
+end
+
+while true
+  menu  
+end
