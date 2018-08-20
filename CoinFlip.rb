@@ -15,10 +15,10 @@ class CoinFlip
   def start
     system('clear')
     puts `artii \'Coin Flip!\' --font slant`.colorize(:gray)
-    puts 'Type QUIT to stop playing'.colorize(:blue)
     @wallet.print_balance
     # Play the game until the user quits
     while @keep_playing == true
+      puts 'Type QUIT to stop playing'.colorize(:blue)
       play_game
     end
   end
