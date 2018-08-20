@@ -20,12 +20,19 @@ class Main
   def menu
     system('clear')
     system('artii \'Ruby Casino\' | lolcat -a -s 500')
+    puts
     @wallet.print_balance
-    puts "Pick A Game".colorize(:green)
-    puts "1: Coin Flip".colorize(:blue)
-    puts "2: Slot Machine".colorize(:blue)
-    puts "3: Exit".colorize(:red)
-    print '> '
+    puts
+    puts '#### Main Menu ####'.colorize(:blue)
+    puts '#                 #'.colorize(:blue)
+    puts "# 1) Coin Flip    #".colorize(:blue)
+    puts '#                 #'.colorize(:blue)
+    puts "# 2) Slot Machine #".colorize(:blue)
+    puts '#                 #'.colorize(:blue)
+    puts "# 3) Exit         #".colorize(:blue)
+    puts '#                 #'.colorize(:blue)
+    puts '###################'.colorize(:blue)
+    print '> '.colorize(:green)
     input = gets.chomp.to_i
     case input
     when 1
