@@ -34,6 +34,7 @@ class CoinFlip
       end
       # Get how much the user wants to bet
       puts 'How much would you like to bet?'
+      p_cursor
       user_bet = gets.chomp.downcase
       # Check if the user wants to quit at this point
       if user_bet == 'quit'
@@ -57,6 +58,7 @@ class CoinFlip
     # Make sure that the user can only enter heads, tails, or quit
     until user_selection == 'heads' || user_selection == 'h' || user_selection == 'tails' || user_selection == 't' || user_selection == 'quit'
       puts 'Heads or Tails?'
+      p_cursor
       user_selection = gets.chomp.downcase
     end
     # Quit if the user wants
@@ -82,6 +84,10 @@ class CoinFlip
       puts `artii \'You Lose!\'`.colorize(:red)
       @wallet.take_money(user_bet)
     end
+  end
+
+  def p_cursor
+    print '> '.colorize(:green)
   end
 
   # Quit the program. Made a function for less typing elsewhere
