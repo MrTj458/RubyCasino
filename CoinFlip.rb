@@ -6,8 +6,8 @@ require 'artii'
 
 # Coin flip game
 class CoinFlip
-  def initialize(starting_balance)
-    @wallet = Wallet.new(starting_balance)
+  def initialize(wallet)
+    @wallet = wallet
     @keep_playing = true
   end
 

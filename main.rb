@@ -8,6 +8,7 @@ require 'colorize'
 require 'artii'
 require 'lolcat'
 
+@wallet = Wallet.new(50.00)
 
 def menu
   system('clear')
@@ -20,7 +21,7 @@ def menu
   input = gets.chomp.to_i
   case input
     when 1
-      CoinFlip.new(10.00).start
+      CoinFlip.new(@wallet).start
     when 2
       SlotMachine.new
     when 3
