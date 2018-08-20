@@ -1,4 +1,5 @@
 require_relative 'Wheel'
+require 'pry'
 
 class SlotMachine #Keeps track of win line arrangement
     attr_accessor :state
@@ -14,29 +15,24 @@ class SlotMachine #Keeps track of win line arrangement
         @pch = nil
         generate_slot
     end
-       def generate_slot
-        y=0
-         @fruits.size.times do |fruit|
-           @positions.size.times do |i| 
 
-            @state << Wheel.new(@fruits[rand(i+1)], fruit)
-            y =+ 1
-                end
+       def generate_slot
+           @positions.size.times do |i| 
+             @state << Wheel.new(i, @fruits.sample)
             end
             shuffle_slots
-            puts @state.each
+            puts @state
         end
 
     def shuffle_slots
-        @state = @state.shuffle
+        @state.shuffle!
+       
     end
 
     def print_slots
         @state.each do |wheel|
             puts "#{wheel.fruit} #{wheel.position}"
-            store_wins
         end
-        
     end
     def store_wins
         @state.each do |chk|
@@ -49,6 +45,7 @@ class SlotMachine #Keeps track of win line arrangement
                     @twos << chk.position
                     end
                 end
+                puts @state
                
     end    
     def win_test(arr)
@@ -88,17 +85,8 @@ class SlotMachine #Keeps track of win line arrangement
         puts @twos.join(' ')
     end    
 
-    # def massresults
-    #     i=0
-    #     while i < 100  do
-    #         shuffle_slots
-    #         store_wins
-    #         i += 1
-    #      end
-    # end
-
-
 end
+
 
 
     
