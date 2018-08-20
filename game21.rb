@@ -1,3 +1,6 @@
+class Game21
+
+
 limit = "21"
 tries = ""
 tries_count = 0
@@ -31,4 +34,7 @@ end
         else
             puts "you loose"
         end
+
+Cards.new
+end
 end
