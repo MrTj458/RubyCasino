@@ -20,7 +20,8 @@ class Main
   def menu
     system('clear')
     system('artii \'Ruby Casino\' | lolcat -a -s 500')
-    puts "Pick A Game".colorize(:cyan)
+    @wallet.print_balance
+    puts "Pick A Game".colorize(:green)
     puts "1: Coin Flip".colorize(:blue)
     puts "2: Slot Machine".colorize(:blue)
     puts "3: Exit".colorize(:red)
@@ -39,6 +40,7 @@ class Main
   end
 
   def quit
+    system('clear')
     system('artii \'Thanks for playing!\' --font slant | lolcat -a -s 500')
     exit
   end
