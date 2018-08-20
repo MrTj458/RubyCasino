@@ -1,4 +1,4 @@
-# Written by Trevor H. and Ladd M.
+# Written by Ladd M. and Trevor H.
 
 require_relative 'CoinFlip.rb'
 require_relative 'SlotMachine.rb'
