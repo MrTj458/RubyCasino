@@ -14,14 +14,19 @@ class SlotMachine #Keeps track of win line arrangement
         @chr = nil
         @pch = nil
         generate_slot
+        print_slots
     end
 
        def generate_slot
+        y = 0
+        while y<3 do
            @positions.size.times do |i| 
              @state << Wheel.new(i, @fruits.sample)
+            
             end
-            shuffle_slots
-            puts @state
+            y += 1
+        end
+            
         end
 
     def shuffle_slots
@@ -87,6 +92,7 @@ class SlotMachine #Keeps track of win line arrangement
 
 end
 
+slot = SlotMachine.new
 
 
     
